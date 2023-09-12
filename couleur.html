@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        background-color: red;
+      }
+      button {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <button>bleu</button>
+
+    <script>
+      const btn = document.querySelector('button');
+      const body = document.querySelector('body');
+      let isRed = true;
+
+      btn.addEventListener('click', () => {
+        if (isRed) {
+          body.style.backgroundColor = 'blue';
+          isRed = false;
+          btn.textContent = 'rouge';
+        } else {
+          body.style.backgroundColor = 'red';
+          isRed = true;
+          btn.textContent = 'bleu';
+        }
+      });
+    </script>
+  </body>
+</html>

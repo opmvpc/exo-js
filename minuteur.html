@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      body > * {
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div><input type="number" value="60" /> secondes</div>
+
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+    <div id="timer"></div>
+
+    <script>
+      const start = document.querySelector('#start');
+      const stop = document.querySelector('#stop');
+      const timerText = document.querySelector('#timer');
+      const input = document.querySelector('input');
+      let intervalID = null;
+      let timeRemaining = 0;
+
+      start.addEventListener('click', () => {
+        if (timeRemaining <= 0) {
+          timeRemaining = input.value;
+          timerText.textContent = timeRemaining;
+        }
+        intervalID = setInterval(handler, 1000);
+      });
+
+      stop.addEventListener('click', () => {
+        clearInterval(intervalID);
+      });
+
+      const handler = () => {
+        if (timeRemaining <= 0) {
+          clearInterval(intervalID);
+        } else {
+          timeRemaining -= 1;
+          timerText.textContent = timeRemaining;
+        }
+      };
+    </script>
+  </body>
+</html>

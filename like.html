@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Start</title>
+    <!-- Media ViewPort -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script
+      src="https://kit.fontawesome.com/b51ce17436.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <style>
+    i {
+      transition: transform 0.3s ease-in-out; /* Animation de transformation */
+    }
+    button {
+      cursor: pointer;
+    }
+  </style>
+  <body>
+    <button>
+      <i class="fa-solid fa-thumbs-up"></i>
+    </button>
+    <script>
+      const btn = document.querySelector('button');
+      const icone = document.querySelector('i');
+      let miroir = false;
+      btn.addEventListener('click', function () {
+        miroir = !miroir; // Inverse l'état du miroir à chaque clic
+        if (miroir) {
+          icone.style.transform = 'scaleY(-1)';
+        } else {
+          icone.style.transform = 'scaleY(1)';
+        }
+      });
+    </script>
+  </body>
+</html>
